@@ -5,6 +5,8 @@ import Greetings from "./components/Greetings";
 import Expressions from "./components/Expressions";
 import List from "./components/List";
 import Users from "./components/Users";
+import Password from "./components/Password";
+import Cart from "./components/ShopCart";
 */
 
 /*Fragments
@@ -26,10 +28,6 @@ We can many things to components using props:
 - arrays
 */
 
-import Password from "./components/Password";
-import Cart from "./components/ShopCart";
-import "./css/index.css";
-
 // const User = (props) => {
 //     console.log(props);
 //     return (
@@ -45,19 +43,24 @@ import "./css/index.css";
 //     );
 // };
 
+import "./styles/index.css";
+import "./styles/tailwind.css"; // Import Tailwind CSS styles
+import { GiBatMask } from "react-icons/gi";
+import Button from "./components/Button";
+
 //Main component to show content on the screen
 const App = () => {
-    const styles = {
-        color: "green",
-        backgroundColor: "yellow",
-        padding: "1rem",
-        borderRadius: "0.5rem",
-        textAlign: "center",
-    };
+	const styles = {
+		color: "green",
+		backgroundColor: "yellow",
+		padding: "1rem",
+		borderRadius: "0.5rem",
+		textAlign: "center",
+	};
 
-    return (
-        <>
-            {/*
+	return (
+		<>
+			{/*
               <Add />
               <Greetings />
               <Expressions />
@@ -73,24 +76,27 @@ const App = () => {
                 <Password isValid={true} />
                 <Cart />
             */}
-            <h1 style={{ color: "white", backgroundColor: "darkblue" }}>
-                Hewwwwo I'm Batman
-            </h1>
-            <h2
-                style={{
-                    color: styles.color,
-                    backgroundColor: styles.backgroundColor,
-                    padding: styles.padding,
-                    borderRadius: styles.borderRadius,
-                    textAlign: styles.textAlign,
-                }}
-            >
-                Hewwwwo I'm Robin
-            </h2>
-            <h3>Hewwwwo I'm Joker</h3>
-            <h4>... I'm Gordon</h4>
-        </>
-    );
+			<h1 style={{ color: "white", backgroundColor: "darkblue" }}>
+				Hewwwwo I'm Batman, with inline style
+			</h1>
+			<h2
+				style={{
+					color: styles.color,
+					backgroundColor: styles.backgroundColor,
+					padding: styles.padding,
+					borderRadius: styles.borderRadius,
+					textAlign: styles.textAlign,
+				}}
+			>
+				Hewwwwo I'm Robin, with inline style from an object
+			</h2>
+			<h3>Hewwwwo I'm Joker, stylized from a css stylesheet</h3>
+			<h4 className='py-5 mx-10 mt-10 text-3xl font-bold text-center text-white bg-red-500 rounded-md cursor-pointer animate-bounce'><GiBatMask className="mx-5"/>... I'm Gordon, stylized with Tailwind
+			</h4>
+
+            <Button />
+		</>
+	);
 };
 
 export default App;
