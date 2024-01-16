@@ -10,7 +10,7 @@ const Change = () => {
     return (
         <>
             <h1>{username}</h1>
-            <button onClick={changeName} className="py-0 my-0 mr-5 text-white bg-slate-600 hover:bg-slate-600 border-slate-900">Change Name</button>
+            <button onClick={changeName} className="py-0 my-0 mr-5 text-white bg-slate-600 hover:bg-slate-300 border-slate-900">Change Name</button>
         </>
     )
 }

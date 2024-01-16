@@ -9,13 +9,15 @@ import Cart from "./components/ShopCart";
 import List from "./components/List";
 import { GiBatMask } from "react-icons/gi";
 import Button from "./components/Button";
+import Counter from "./components/Counter";
+import Change from "./components/ChangeName";
 */
 
 /*Fragments
 For some layouts, we don't need <section> or <div> tags, but we still need a parent for our multiple components to return ==> we can use Fragments
 Method A:
-  1) import { Fragment } from "react";
-  2) Wrap components in Fragment tags
+1) import { Fragment } from "react";
+2) Wrap components in Fragment tags
 Method B:
   1) Wrap components in <> </>
 
@@ -46,53 +48,63 @@ We can many things to components using props:
 // };
 
 // import "./styles/index.css";
-import "./styles/tailwind.css"; // Import Tailwind CSS styles
 
 // const Copy = () => {
-	// 	const handleCopy = () => {
-		
-		// 		alert("Stop stealing my content!")
-		// 	}
-		
-		// 	return (
-			// 		<>
-			// 			<p onCopy={handleCopy}>
-			// 				Lorem ipsum dolor si ametLorem ipsum dolor si ametLorem ipsum dolor si ametLorem ipsum dolor si ametLorem ipsum dolor si ametLorem ipsum dolor si ametLorem ipsum dolor si ametLorem ipsum dolor si amet
-			// 			</p>
-			// 			<p>lorem2</p>
-			// 		</>
-			// 	);
-			// }
-			
-			// const Move = () => {
-				// 	const handleMove = () => {
-					
-					// 		alert("You hovered me :)")
-					// 	}
-					
-					// 	return (
-						// 		<>
-						// 			<p onMouseMove={handleMove}>Lorem ipsum dolor si ametLorem ipsum dolor si ametLorem ipsum dolor si ametLorem ipsum dolor si ametLorem ipsum dolor si ametLorem ipsum dolor si ametLorem ipsum dolor si ametLorem ipsum dolor si amet</p>
-						// 		</>
-						// 	);
-						// }
-						
-import Counter from "./components/Counter";
-import Change from "./components/ChangeName";
-import Friends from "./components/Friends";
+// 	const handleCopy = () => {
+
+// 		alert("Stop stealing my content!")
+// 	}
+
+// 	return (
+// 		<>
+// 			<p onCopy={handleCopy}>
+// 				Lorem ipsum dolor si ametLorem ipsum dolor si ametLorem ipsum dolor si ametLorem ipsum dolor si ametLorem ipsum dolor si ametLorem ipsum dolor si ametLorem ipsum dolor si ametLorem ipsum dolor si amet
+// 			</p>
+// 			<p>lorem2</p>
+// 		</>
+// 	);
+// }
+
+// const Move = () => {
+// 	const handleMove = () => {
+
+// 		alert("You hovered me :)")
+// 	}
+
+// 	return (
+// 		<>
+// 			<p onMouseMove={handleMove}>Lorem ipsum dolor si ametLorem ipsum dolor si ametLorem ipsum dolor si ametLorem ipsum dolor si ametLorem ipsum dolor si ametLorem ipsum dolor si ametLorem ipsum dolor si ametLorem ipsum dolor si amet</p>
+// 		</>
+// 	);
+// }
+
+import "./styles/tailwind.css"; // Import Tailwind CSS styles
+// import Friends from "./components/Friends";
+// import Movie from "./components/Movie";
+// import Form from "./components/Form";
+// import Effect from "./components/Effect";
+// import Fetch from "./components/Fetch";
+import { createContext } from "react";
+import ComponentC from "./components/ComponentC";
+
+export const Data = createContext();
+export const Data1 = createContext();
+
 //Main component to show content on the screen
 const App = () => {
-	// const styles = {
-	// 	color: "green",
-	// 	backgroundColor: "yellow",
-	// 	padding: "1rem",
-	// 	borderRadius: "0.5rem",
-	// 	textAlign: "center",
-	// };
+    // const styles = {
+    // 	color: "green",
+    // 	backgroundColor: "yellow",
+    // 	padding: "1rem",
+    // 	borderRadius: "0.5rem",
+    // 	textAlign: "center",
+    // };
+    const name = "Naïké";
+    const age = 33;
 
-	return (
-		<>
-			{/*
+    return (
+        <>
+            {/*
               <Add />
               <Greetings />
               <Expressions />
@@ -128,14 +140,26 @@ const App = () => {
 				<Button />
 				<Copy />
 				<Move />
+				<Counter />
+				<Change />
+				<Friends />
+				<hr className="my-5" />
+				<Movie />
+				<hr className="my-5" />
+				<Form />
+				<hr className="my-5" />
+				<Effect />
+				<hr className="my-5" />
+				<Fetch />
             */}
 
-			<Counter />
-			<Change />
-			<Friends />
-
-		</>
-	);
+            <Data.Provider value={name}>
+                <Data1.Provider value={age}>
+                    <ComponentC />
+                </Data1.Provider>
+            </Data.Provider>
+        </>
+    );
 };
 
 export default App;
