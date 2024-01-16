@@ -1,24 +1,15 @@
+import { useContext } from 'react';
 import {Data, Data1} from '../App';
 
 const ComponentC = () => {
+  const name = useContext(Data);
+  const age = useContext(Data1);
+
   return (
-    <Data.Consumer>
-      {(name) => {
-        return (
-          <Data1.Consumer>
-            {(age) => {
-              return (
-                <>
-                  <h1>ComponentC</h1>
-                  <h2>{name} - {age}</h2>
-                </>
-              )
-            }}
-          </Data1.Consumer>
-        )}
-      }
-    </Data.Consumer>
+    <>
+      <h1>My name is {name} and I'm {age}years old.</h1>
+    </>
   )
 }
 
-export default ComponentC
+export default ComponentC;
