@@ -220,6 +220,9 @@
 // //     }
 // // };
 
+//-------------------------------------------
+
+/*
 import { useRef } from "react";
 
 const App = () => {
@@ -245,6 +248,20 @@ const App = () => {
             </button>
         </>
     );
+};
+
+export default App;
+
+*/
+
+//-----------------------------------
+
+import { useFetch } from "./hooks/useFetch";
+
+export const App = () => {
+	const [data ] = useFetch("https://jsonplaceholder.typicode.com/todos")
+
+	return <>{data && data.map((todo) => <p key={todo.id}>{todo.title}</p>)}</>;
 };
 
 export default App;
